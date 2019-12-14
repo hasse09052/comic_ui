@@ -1,7 +1,6 @@
 <template>
   <main class="home">
     <div class="home__container">
-      <img alt="Vue logo" src="../assets/logo.png" />
       <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
       <ul class="home__lists">
         <li
@@ -10,12 +9,12 @@
           class="home__list"
         >
           <router-link
-            v-bind:to="{ name: 'about', params: { id: item.seriesId } }"
+            v-bind:to="{ name: 'about', params: { seriesId: item.seriesId } }"
             class="home__link"
           >
             <figure class="home__imgWrap">
               <img
-                v-bind:src="item.seriesImage"
+                v-lazy="item.seriesImage"
                 v-bind:alt="item.title"
                 class="home__img"
               />
@@ -55,13 +54,14 @@ export default {
 
   &__lists {
     display: flex;
+    flex-wrap: wrap;
     padding: 0;
     margin: 0;
     list-style: none;
   }
 
   &__list {
-    width: calc(100% / 4);
+    width: calc(100% / 5);
   }
 
   &__imgWrap {

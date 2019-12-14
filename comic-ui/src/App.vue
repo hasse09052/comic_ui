@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <!-- <router-link to="/about">About</router-link> -->
-    </div>
+    <header>
+      <nav id="nav">
+        <router-link to="/">Home</router-link>
+      </nav>
+    </header>
     <router-view />
   </div>
 </template>
@@ -20,7 +21,7 @@ export default {
 @import "./assets/css/sanitize.css";
 @import "./assets/css/my_reset.css";
 
-#app {
+/* #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -39,5 +40,5 @@ export default {
       color: #42b983;
     }
   }
-}
+} */
 </style>
