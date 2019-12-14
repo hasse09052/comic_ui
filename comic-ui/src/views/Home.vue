@@ -1,18 +1,70 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <main class="home">
+    <div class="home__container">
+      <img alt="Vue logo" src="../assets/logo.png" />
+      <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+      <ul class="home__lists">
+        <li
+          v-for="item in comicList"
+          v-bind:key="item.seriesId"
+          class="home__list"
+        >
+          <router-link
+            v-bind:to="{ name: 'about', params: { id: item.seriesId } }"
+            class="home__link"
+          >
+            <figure class="home__imgWrap">
+              <img
+                v-bind:src="item.seriesImage"
+                v-bind:alt="item.title"
+                class="home__img"
+              />
+            </figure>
+          </router-link>
+        </li>
+      </ul>
+    </div>
+  </main>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+//import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
-  name: 'home',
+  name: "home",
+  computed: {
+    comicList() {
+      return this.$store.getters.getComicList;
+    }
+  },
   components: {
-    HelloWorld
+    //HelloWorld
+  }
+};
+</script>
+
+<style lang="scss">
+.home {
+  &__link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__lists {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__list {
+    width: calc(100% / 4);
+  }
+
+  &__imgWrap {
   }
 }
-</script>
+</style>
