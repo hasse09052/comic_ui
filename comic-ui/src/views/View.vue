@@ -11,7 +11,7 @@
         </button>
       </div>
       <div class="view__pageController">
-        <p class="view__pageNo">{{ pageNum }}</p>
+        <p class="view__pageNo">{{ pageNum | pageRetouching }}</p>
         <input
           type="range"
           v-model="pageNum"
@@ -21,7 +21,7 @@
         />
       </div>
       <h1 class="view__title">{{ comic.title }}</h1>
-      <BookLinks />
+      <BookLinks v-bind:series-id="comic.seriesId" />
     </div>
   </main>
 </template>
@@ -93,6 +93,11 @@ export default {
       }
       this.viewUrl = this.comic.imageData[this.pageNum].imageUrl;
     }
+  },
+  filters: {
+    pageRetouching(value) {
+      return Number(value) + 1;
+    }
   }
 };
 </script>
@@ -106,7 +111,7 @@ export default {
     background: black;
     position: relative;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
       padding: 10px;
     }
   }
