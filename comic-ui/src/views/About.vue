@@ -1,17 +1,23 @@
 <template>
   <main class="about">
-    <h1 class="about__title">{{ comic.title }}</h1>
-    <ul class="about__lists">
-      <li v-for="item in comic.books" v-bind:key="item.id" class="about__list">
-        <router-link
-          v-bind:to="{ name: 'view', params: { pageId: item.id } }"
-          class="about__link"
+    <div class="about__container">
+      <h1 class="about__title">{{ comic.title }}</h1>
+      <ul class="about__lists">
+        <li
+          v-for="item in comic.books"
+          v-bind:key="item.id"
+          class="about__list"
         >
-          <img v-lazy="item.image" alt="item.title" class="about__img" />
-          <h2 class="about__bookTitle">{{ item.title }}</h2>
-        </router-link>
-      </li>
-    </ul>
+          <router-link
+            v-bind:to="{ name: 'view', params: { pageId: item.id } }"
+            class="about__link"
+          >
+            <img v-lazy="item.image" alt="item.title" class="about__img" />
+            <h2 class="about__bookTitle">{{ item.title }}</h2>
+          </router-link>
+        </li>
+      </ul>
+    </div>
   </main>
 </template>
 
@@ -54,6 +60,7 @@ export default {
   &__lists {
     display: flex;
     flex-wrap: wrap;
+    padding: 0;
   }
 
   &__list {

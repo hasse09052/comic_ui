@@ -16,6 +16,7 @@
           type="range"
           v-model="pageNum"
           step="1"
+          min="0"
           v-bind:max="comic.pageNum - 1"
           class="view__range"
         />
