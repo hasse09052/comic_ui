@@ -1,11 +1,17 @@
 <template>
-  <div id="app">
-    <header>
-      <nav id="nav">
-        <router-link to="/">Home</router-link>
-      </nav>
+  <div id="app" class="app">
+    <header class="header">
+      <div class="header__container">
+        <nav class="header__nav">
+          <ul class="header__lists">
+            <li class="header__list">
+              <router-link to="/" class="header__link">作品一覧</router-link>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
-    <router-view />
+    <router-view class="app__container" />
   </div>
 </template>
 
@@ -20,6 +26,31 @@ export default {
 <style lang="scss">
 @import "./assets/css/sanitize.css";
 @import "./assets/css/my_reset.css";
+
+.app {
+  &__container {
+    //padding: 0 3.5%;
+  }
+}
+
+.header {
+  background: rgba($color: #000000, $alpha: 0.7);
+  padding: 10px 30px;
+
+  &__lists {
+    margin: 0;
+  }
+
+  &__link {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
 
 /* #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;

@@ -8,8 +8,8 @@ Vue.config.productionTip = false
 
 Vue.use(VueLazyload, {
   preLoad: 1.2,
-  error: './assets/img/error.png',
-  loading: './assets/img/loading.gif',
+  error: '/assets/img/error.png',
+  loading: '/assets/img/loading.gif',
   attempt: 1
 })
 

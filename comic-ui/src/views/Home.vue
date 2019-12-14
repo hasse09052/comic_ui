@@ -45,6 +45,10 @@ export default {
 
 <style lang="scss">
 .home {
+  &__container {
+    padding: 0 3.5%;
+  }
+
   &__link {
     display: flex;
     align-items: center;
@@ -61,7 +65,13 @@ export default {
   }
 
   &__list {
-    width: calc(100% / 5);
+    width: calc(100% / 4);
+    padding: 1%;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 
   &__imgWrap {

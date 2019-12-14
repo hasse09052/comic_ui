@@ -1,6 +1,6 @@
 <template>
   <main class="about">
-    <h1>{{ comic.title }}</h1>
+    <h1 class="about__title">{{ comic.title }}</h1>
     <ul class="about__lists">
       <li v-for="item in comic.books" v-bind:key="item.id" class="about__list">
         <router-link
@@ -43,13 +43,32 @@ export default {
 
 <style lang="scss">
 .about {
+  &__container {
+    padding: 0 3.5%;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
   &__lists {
     display: flex;
     flex-wrap: wrap;
   }
 
   &__list {
-    width: calc(100% / 5);
+    width: calc(100% / 4);
+    padding: 1%;
+    list-style: none;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__bookTitle {
+    font-size: 1rem;
   }
 }
 </style>
