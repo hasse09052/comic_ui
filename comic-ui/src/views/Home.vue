@@ -9,23 +9,40 @@
             </li>
           </ul>
         </nav>
+        <button v-on:click="reverse = !reverse" class="header__btn">リバース</button>
       </div>
     </header>
     <main class="home">
       <div class="home__container">
         <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-        <ul class="home__lists">
-          <li v-for="item in comicList" v-bind:key="item.seriesId" class="home__list">
-            <router-link
-              v-bind:to="{ name: 'about', params: { seriesId: item.seriesId } }"
-              class="home__link"
-            >
-              <figure class="home__imgWrap">
-                <img v-lazy="item.seriesImage" v-bind:alt="item.title" class="home__img" />
-              </figure>
-            </router-link>
-          </li>
-        </ul>
+        <template v-if="reverse">
+          <ul class="home__lists">
+            <li v-for="item in comicList" v-bind:key="item.seriesId" class="home__list">
+              <router-link
+                v-bind:to="{ name: 'about', params: { seriesId: item.seriesId } }"
+                class="home__link"
+              >
+                <figure class="home__imgWrap">
+                  <img v-lazy="item.seriesImage" v-bind:alt="item.title" class="home__img" />
+                </figure>
+              </router-link>
+            </li>
+          </ul>
+        </template>
+        <template v-else>
+          <ul class="home__lists">
+            <li v-for="item in listReverse" v-bind:key="item.seriesId" class="home__list">
+              <router-link
+                v-bind:to="{ name: 'about', params: { seriesId: item.seriesId } }"
+                class="home__link"
+              >
+                <figure class="home__imgWrap">
+                  <img v-lazy="item.seriesImage" v-bind:alt="item.title" class="home__img" />
+                </figure>
+              </router-link>
+            </li>
+          </ul>
+        </template>
       </div>
     </main>
   </div>
@@ -37,13 +54,23 @@
 
 export default {
   name: "home",
+  data() {
+    return {
+      reverse: true
+    };
+  },
   computed: {
     comicList() {
       return this.$store.getters.getComicList;
+    },
+    listReverse() {
+      return this.comicList.slice().reverse();
     }
   },
-  components: {
-    //HelloWorld
+  methods: {
+    showReverse() {
+      this.comicList = [];
+    }
   }
 };
 </script>

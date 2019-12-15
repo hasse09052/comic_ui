@@ -24,24 +24,15 @@ export default {
   }
 }
 
-/* .view-enter-active,
-.view-leav-active {
-  transition: 3s;
-}
-
-.view-leav-active {
-  position: absolute;
-}
-
-.view-enter,
-.view-leave-to {
-  opacity: 0;
-} */
-
 .header {
   background: rgba($color: #000000, $alpha: 0.7);
   height: 50px;
   padding: 0 30px;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
 
   &__lists {
     display: flex;
@@ -67,26 +58,15 @@ export default {
       text-decoration: underline;
     }
   }
-}
 
-/* #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  &__btn {
+    border: none;
+    background: #999999;
+    color: white;
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+    &:focus {
+      outline: 0;
     }
   }
-} */
+}
 </style>
