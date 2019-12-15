@@ -76,5 +76,13 @@ export default {
 
   &__imgWrap {
   }
+
+  &__img {
+    transition: 0.3s;
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
 }
 </style>

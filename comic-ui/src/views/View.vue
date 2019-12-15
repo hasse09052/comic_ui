@@ -57,7 +57,7 @@ export default {
         this.viewUrl = response.data.imageData[0].imageUrl;
       })
       .catch(reason => {
-        console.log("失敗:" + reason);
+        alert("失敗:" + reason);
       });
 
     window.addEventListener("keydown", e => {
