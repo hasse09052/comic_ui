@@ -3,11 +3,7 @@
     <div class="about__container">
       <h1 class="about__title">{{ comic.title }}</h1>
       <ul class="about__lists">
-        <li
-          v-for="item in comic.books"
-          v-bind:key="item.id"
-          class="about__list"
-        >
+        <li v-for="item in comic.books" v-bind:key="item.id" class="about__list">
           <router-link
             v-bind:to="{ name: 'view', params: { pageId: item.id } }"
             class="about__link"
@@ -41,7 +37,7 @@ export default {
         this.comic = response.data;
       })
       .catch(reason => {
-        console.log("失敗:" + reason);
+        //console.log("失敗:" + reason);
       });
   }
 };
