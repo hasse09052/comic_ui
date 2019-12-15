@@ -37,7 +37,7 @@ export default {
         this.comic = response.data;
       })
       .catch(reason => {
-        //console.log("失敗:" + reason);
+        alert("失敗:" + reason);
       });
   }
 };

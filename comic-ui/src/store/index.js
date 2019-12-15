@@ -29,7 +29,7 @@ export default new Vuex.Store({
           return payload = response.data.data;
         })
         .catch((reason) => {
-          //console.log("失敗:" + reason);
+          alert("失敗:" + reason);
         })
       commit("setComicList", payload);
     }
