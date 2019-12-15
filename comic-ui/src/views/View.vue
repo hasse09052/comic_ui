@@ -192,8 +192,11 @@ export default {
 
   &__range {
     display: block;
-    width: 93%;
+    width: 90%;
     margin: 0 auto;
+    @media screen and (max-width: 767px) {
+      width: 80%;
+    }
   }
 
   &__title {
