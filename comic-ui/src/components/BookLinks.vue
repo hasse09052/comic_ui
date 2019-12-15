@@ -74,6 +74,15 @@ export default {
     font-size: 20px;
     transition: 0.3s;
 
+    @media (prefers-color-scheme: dark) {
+      background: black;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 70%;
+      height: 40px;
+    }
+
     &:focus {
       outline: 0;
     }
@@ -87,6 +96,8 @@ export default {
   &__lists {
     display: flex;
     flex-wrap: wrap;
+    padding: 15px 3.5%;
+    margin: 0;
   }
 
   &__list {
@@ -114,8 +125,17 @@ export default {
 
   &__title {
     margin: 0;
-    font-size: 14px;
+    font-size: 13px;
     color: black;
+
+    @media (prefers-color-scheme: dark) {
+      color: white;
+    }
+
+    @media screen and (max-width: 767px) {
+      margin-left: 10px;
+      font-size: 10px;
+    }
   }
 }
 </style>

@@ -1,29 +1,34 @@
 <template>
-  <main class="home">
-    <div class="home__container">
-      <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-      <ul class="home__lists">
-        <li
-          v-for="item in comicList"
-          v-bind:key="item.seriesId"
-          class="home__list"
-        >
-          <router-link
-            v-bind:to="{ name: 'about', params: { seriesId: item.seriesId } }"
-            class="home__link"
-          >
-            <figure class="home__imgWrap">
-              <img
-                v-lazy="item.seriesImage"
-                v-bind:alt="item.title"
-                class="home__img"
-              />
-            </figure>
-          </router-link>
-        </li>
-      </ul>
-    </div>
-  </main>
+  <div class="app__container">
+    <header class="header">
+      <div class="header__container">
+        <nav class="header__nav">
+          <ul class="header__lists">
+            <li class="header__list">
+              <router-link to="/" class="header__link">作品一覧</router-link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="home">
+      <div class="home__container">
+        <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+        <ul class="home__lists">
+          <li v-for="item in comicList" v-bind:key="item.seriesId" class="home__list">
+            <router-link
+              v-bind:to="{ name: 'about', params: { seriesId: item.seriesId } }"
+              class="home__link"
+            >
+              <figure class="home__imgWrap">
+                <img v-lazy="item.seriesImage" v-bind:alt="item.title" class="home__img" />
+              </figure>
+            </router-link>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </div>
 </template>
 
 <script>
@@ -47,6 +52,11 @@ export default {
 .home {
   &__container {
     padding: 0 3.5%;
+
+    @media (prefers-color-scheme: dark) {
+      min-height: calc(100vh - 50px);
+      background: #000000;
+    }
   }
 
   &__link {
@@ -67,7 +77,12 @@ export default {
   &__list {
     width: calc(100% / 4);
     padding: 1%;
+    margin: 10px 0;
     transition: 0.3s;
+
+    @media screen and (max-width: 767px) {
+      width: calc(100% / 3);
+    }
 
     &:hover {
       opacity: 0.7;
@@ -78,7 +93,7 @@ export default {
   }
 
   &__img {
-    transition: 0.3s;
+    transition: 0.2s;
 
     &:active {
       transform: scale(0.9);

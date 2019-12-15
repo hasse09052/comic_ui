@@ -1,17 +1,8 @@
 <template>
   <div id="app" class="app">
-    <header class="header">
-      <div class="header__container">
-        <nav class="header__nav">
-          <ul class="header__lists">
-            <li class="header__list">
-              <router-link to="/" class="header__link">作品一覧</router-link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <router-view class="app__container" />
+    <transition name="view">
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -29,25 +20,51 @@ export default {
 
 .app {
   &__container {
-    //padding: 0 3.5%;
+    //min-height: 100vh;
   }
 }
 
+/* .view-enter-active,
+.view-leav-active {
+  transition: 3s;
+}
+
+.view-leav-active {
+  position: absolute;
+}
+
+.view-enter,
+.view-leave-to {
+  opacity: 0;
+} */
+
 .header {
   background: rgba($color: #000000, $alpha: 0.7);
-  padding: 10px 30px;
+  height: 50px;
+  padding: 0 30px;
 
   &__lists {
+    display: flex;
     margin: 0;
   }
 
+  &__list {
+    color: white;
+    margin-right: 20px;
+  }
+
   &__link {
+    display: block;
+    width: 100%;
+    height: 100%;
     color: white;
     text-decoration: none;
+    line-height: 50px;
     transition: 0.3s;
 
     &:hover {
       opacity: 0.7;
+      text-decoration: underline;
     }
   }
 }
