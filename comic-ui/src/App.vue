@@ -60,6 +60,7 @@ export default {
   }
 
   &__btn {
+    height: 50px;
     border: none;
     background: #999999;
     font-size: 14px;
