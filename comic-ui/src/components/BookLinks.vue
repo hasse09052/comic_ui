@@ -1,17 +1,11 @@
 <template>
   <div class="bookLinks">
     <div class="bookLinks__btnWrap">
-      <button v-on:click="getList" v-if="showBtn" class="bookLinks__btn">
-        {{ btnText }}
-      </button>
+      <button v-on:click="getList" v-if="showBtn" class="bookLinks__btn">{{ btnText }}</button>
     </div>
     <nav class="bookLinks__nav">
       <ul class="bookLinks__lists">
-        <li
-          v-for="item in comicNav.books"
-          v-bind:key="item.id"
-          class="bookLinks__list"
-        >
+        <li v-for="item in comicNav.books" v-bind:key="item.id" class="bookLinks__list">
           <router-link
             v-bind:to="{ name: 'view', params: { pageId: item.id } }"
             class="bookLinks__link"
@@ -54,7 +48,7 @@ export default {
           this.comicNav = response.data;
         })
         .catch(reason => {
-          console.log("失敗:" + reason);
+          alert("失敗:" + reason);
         });
       this.showBtn = false;
     }
