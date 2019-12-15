@@ -5,7 +5,7 @@
         <nav class="header__nav">
           <ul class="header__lists">
             <li class="header__list">
-              <router-link to="/" class="header__link">作品一覧</router-link>
+              <!-- <router-link to="/" class="header__link">作品一覧</router-link> -->
             </li>
           </ul>
         </nav>
