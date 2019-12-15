@@ -62,10 +62,20 @@ export default {
   &__btn {
     border: none;
     background: #999999;
+    font-size: 14px;
     color: white;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 0.7;
+    }
 
     &:focus {
       outline: 0;
+    }
+
+    &--active {
+      background: #95bfe7;
     }
   }
 }

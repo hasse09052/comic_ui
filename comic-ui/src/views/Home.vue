@@ -9,7 +9,11 @@
             </li>
           </ul>
         </nav>
-        <button v-on:click="reverse = !reverse" class="header__btn">リバース</button>
+        <button
+          v-on:click="reverse = !reverse"
+          class="header__btn"
+          v-bind:class="{'header__btn--active' : !reverse}"
+        >Reverse</button>
       </div>
     </header>
     <main class="home">
